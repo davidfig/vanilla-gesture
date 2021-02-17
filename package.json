@@ -1,0 +1,50 @@
+{
+  "name": "vanilla-gesture",
+  "version": "0.1.0",
+  "description": "Configurable vanilla input handler for swipe, click, double-click, and long-click that works with both mouse and touch",
+  "main": "dist/index.js",
+  "module": "code/index.js",
+  "scripts": {
+    "start": "parcel demo/index.html --out-dir docs",
+    "build-demo": "node generate/cleanup && parcel build demo/index.html --out-dir docs --public-url /vanilla-gesture/",
+    "build-commonjs": "esbuild code/index.js --bundle --minify --sourcemap --target=chrome58,firefox57,safari11,edge16 --format=cjs --outfile=dist/index.js",
+    "build": "npm run build-demo",
+    "prepublishOnly": "yarn build && yarn build-demo"
+  },
+  "files": [
+    "dist",
+    "code"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidfig/vanilla-gesture.git"
+  },
+  "keywords": [
+    "javascript",
+    "mouse",
+    "touch",
+    "double click",
+    "long click",
+    "click",
+    "swipe",
+    "swipe left",
+    "swipe right",
+    "gestures",
+    "vanilla"
+  ],
+  "author": {
+    "name": "David Figatner (YOPEY YOPEY LLC)",
+    "email": "david@yopeyopey.com",
+    "url": "https://yopeyopey.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/davidfig/clicked/issues"
+  },
+  "homepage": "https://github.com/davidfig/clicked#readme",
+  "devDependencies": {
+    "esbuild": "^0.8.46",
+    "fs-extra": "^9.1.0",
+    "parcel": "^1.12.4"
+  }
+}
